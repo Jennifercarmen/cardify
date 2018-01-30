@@ -1,4 +1,6 @@
 $(document).ready(function() {
-  $('.container img').pluss();
-  // $('.cont-img').figure();
+  $('.container img').pluss(
+    {align: 'horizontal',
+    direction: 'tb'
+  });
 });

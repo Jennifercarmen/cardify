@@ -1,36 +1,31 @@
-
-$(document).ready(function() {
-  $.fn.pluss = function() {
-    this.each(function() {
-      $(this).on('mouseover', function() {
-        // var images = $('img');
-        /* for (var i = 0;i < images.length;i++) {*/
-        $('.container').append(
-          '<figure class="cont-img">' +
-         '<img src=' + $(this).attr('src') + ' width="200px"> </img>' +
-         '<figcaption>' + $(this).attr('alt') + '</figcaption>' +
-         '</figure>'
-        );
-      });
+(function($) {
+  // Declaración del plugin.
+  $.fn.pluss = function(options) {
+    // Obtenemos los parámetros.
+    options = $.extend({}, $.fn.pluss.defaultOptions, options);
+    this.each(function(index) {
+      $('.container').append(
+        '<figure>' +
+        
+            '<figcaption>' + $(this).attr('alt') + '</figcaption>' +
+            '</figure>'
+      );
+      $('figure')[index].prepend($(this)[0]);
+      var element = $('figure');
+      var container = $('.container');
+      container.addClass(options.direction);
+      element.addClass(options.align);
         
       $(this).on('mouseover', function() {
-        // var images = $('img');
-        /* for (var i = 0;i < images.length;i++) {*/
-        // var newImg = 'assets/img/libros.jpg';
         $(this).hide();
-        // $(this).attr('src', newImg);
-      });
-      
-    });
-  
-    $('.cont-img img').each(function() {
-      $('.cont-img img').on('mauseover', function() {
-        alert('hola');
-        /* var newImg = 'assets/img/libros.jpg';
-        $('.cont-img img').attr('src', newImg);*/
+        $('figcaption:eq(' + (index) + ')').addClass('figcaptionhover');
       });
     });
-  };   
-});
+  };  
+  // Parametros del plugin.
 
-
+  $.fn.pluss.defaultOptions = {
+    align: 'vertical',
+    direction: ''
+  };
+})(jQuery);
