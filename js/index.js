@@ -1,4 +1,4 @@
-(function($) {
+(($) => {
   // Declaración del plugin.
   $.fn.pluss = function(options) {
     // Obtenemos los parámetros.
@@ -16,7 +16,7 @@
       container.addClass(options.direction);
       element.addClass(options.align);
         
-      $(this).on('mouseover', function()  {
+      $(this).on('mouseover', () =>  {
         $(this).hide();
         $('figcaption:eq(' + (index) + ')').addClass('figcaptionhover');
       });
