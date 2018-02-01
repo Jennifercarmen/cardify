@@ -11,24 +11,26 @@
       figure.append('<figcaption class="hidden">' + $(value).attr('alt') + '</figcaption>');
 
       // Estableciendo clases (horizontal o vertical---por defecto vertical)
+      $(value).addClass('cont-img');
+
       $(this).addClass(options.direction);
       figure.addClass(options.align);
       //  Efecto Hover
       $(value).mouseover(() => {
         $(value).addClass('hidden');
-        $('figcaption:eq(' + (index) + ')').removeClass('hidden');
-        $('figcaption:eq(' + (index) + ')').addClass('cardify-figcaption');
+               $( value).next().removeClass('hidden');
+               $( value).next().addClass('cardify-figcaption');
       });
       $('figcaption').mouseout(() => {
         $(value).removeClass('hidden');
-        $('figcaption:eq(' + (index) + ')').addClass('hidden');
+               $( value).next().addClass('hidden');
         $(this).removeClass('figcaptionhover');
       });
     });
   };
   // Parametros del plugin.
   $.fn.pluss.defaultOptions = {
-    align: 'figure-cardify',
-    direction: 'vertical'
+    align: 'vertical',
+    direction: ''
   };
 })(jQuery);
