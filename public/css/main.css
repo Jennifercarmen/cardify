@@ -109,3 +109,9 @@ span {
 .descarga a {
     margin: 2%;
 }
+
+.icon-chevron-left{
+    margin: 10px;
+    color: #22489d;
+    font-size: 30px;
+}
